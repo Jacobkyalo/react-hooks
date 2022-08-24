@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <main>
         <UseStateHook />
+        <p>Hello world</p>
       </main>
     </div>
   );
