@@ -1,12 +1,13 @@
 import "./App.css";
 import UseStateHook from "./hooks/UseStateHook";
+import UseEffectHook from "./hooks/UseEffectHook";
 
 function App() {
   return (
     <div className="App">
       <main>
         <UseStateHook />
-        <p>Hello world</p>
+        <UseEffectHook />
       </main>
     </div>
   );
