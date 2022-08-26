@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-// import UseStateHook from "./hooks/UseStateHook";
-// import UseEffectHook from "./hooks/UseEffectHook";
+import UsingCustomHookLogic from "./hooks/UsingCustomHookLogic";
+import UseStateHook from "./hooks/UseStateHook";
+import UseEffectHook from "./hooks/UseEffectHook";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -32,17 +33,18 @@ function App() {
 
   return (
     <div className="App">
-      {/* <main>
+      <main>
         <UseStateHook />
         <UseEffectHook />
-      </main> */}
+      </main>
+      <hr />
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
       <button type="button" onClick={() => setSearch(query)}>
-        Click
+        Search
       </button>
       {error && <h2>Something went wrong, Refresh...</h2>}
       {loading ? (
@@ -60,6 +62,10 @@ function App() {
           )}
         </>
       )}
+      <hr />
+      <div>
+        <UsingCustomHookLogic />
+      </div>
     </div>
   );
 }
