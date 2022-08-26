@@ -3,6 +3,7 @@ import "./App.css";
 import UsingCustomHookLogic from "./hooks/UsingCustomHookLogic";
 import UseStateHook from "./hooks/UseStateHook";
 import UseEffectHook from "./hooks/UseEffectHook";
+import UsingUseReducerLogic from "./hooks/UsingUseReducerLogic";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -65,6 +66,10 @@ function App() {
       <hr />
       <div>
         <UsingCustomHookLogic />
+      </div>
+      <hr />
+      <div>
+        <UsingUseReducerLogic />
       </div>
     </div>
   );
