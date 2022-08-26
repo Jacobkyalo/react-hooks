@@ -20,7 +20,7 @@ function App() {
         );
         const jsondata = await res.json();
         setData({ hits: jsondata.hits });
-        console.log(jsondata);
+        //console.log(jsondata);
         setLoading(false);
       } catch (error) {
         setError(true);
