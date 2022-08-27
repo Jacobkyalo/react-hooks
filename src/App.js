@@ -4,6 +4,9 @@ import UsingCustomHookLogic from "./hooks/UsingCustomHookLogic";
 import UseStateHook from "./hooks/UseStateHook";
 import UseEffectHook from "./hooks/UseEffectHook";
 import UsingUseReducerLogic from "./hooks/UsingUseReducerLogic";
+import { UseContectHook } from "./hooks/UseContectHook";
+import { Context } from "./contexts/ThemeContext";
+import HelloWorld from "./components/HelloWorld";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -33,8 +36,9 @@ function App() {
   }, [search]);
 
   return (
-    <div className="App">
-      <main>
+    <Context.Provider value={"green"}>
+      <div className="App">
+        {/* <main>
         <UseStateHook />
         <UseEffectHook />
       </main>
@@ -70,8 +74,13 @@ function App() {
       <hr />
       <div>
         <UsingUseReducerLogic />
+      </div> */}
+        <div>
+          <UseContectHook />
+          <HelloWorld />
+        </div>
       </div>
-    </div>
+    </Context.Provider>
   );
 }
 
