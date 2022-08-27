@@ -6,7 +6,9 @@ import UseEffectHook from "./hooks/UseEffectHook";
 import UsingUseReducerLogic from "./hooks/UsingUseReducerLogic";
 import { UseContectHook } from "./hooks/UseContectHook";
 import { Context } from "./contexts/ThemeContext";
+import { ThemeContext, themes } from "./contexts/ThemeContext";
 import HelloWorld from "./components/HelloWorld";
+import ConsumingDefaultContextValue from "./components/ConsumingDefaultContextValue";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -14,6 +16,8 @@ function App() {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const [theme, setTheme] = useState(themes.light);
 
   useEffect(() => {
     const fetchHits = async () => {
@@ -36,9 +40,20 @@ function App() {
   }, [search]);
 
   return (
-    <Context.Provider value={"green"}>
-      <div className="App">
-        {/* <main>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <>
+        <ConsumingDefaultContextValue />
+        <Context.Provider value={"green"}>
+          <div
+            className="App"
+            style={{
+              backgroundColor: theme
+                ? themes.light.background
+                : themes.dark.background,
+              color: theme ? themes.light.textcolor : themes.dark.textcolor,
+            }}
+          >
+            {/* <main>
         <UseStateHook />
         <UseEffectHook />
       </main>
@@ -75,12 +90,16 @@ function App() {
       <div>
         <UsingUseReducerLogic />
       </div> */}
-        <div>
-          <UseContectHook />
-          <HelloWorld />
-        </div>
-      </div>
-    </Context.Provider>
+            <div>
+              <UseContectHook />
+              <HelloWorld />
+            </div>
+            <p>Checking whether ThemeContext is working</p>
+            <button onClick={() => setTheme(!theme)}>Change Theme</button>
+          </div>
+        </Context.Provider>
+      </>
+    </ThemeContext.Provider>
   );
 }
 
