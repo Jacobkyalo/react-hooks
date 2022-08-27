@@ -1,5 +1,7 @@
 # React Hooks
 
+Learning React hooks at a glance
+
 Learn more on [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 
 ## Available Scripts
