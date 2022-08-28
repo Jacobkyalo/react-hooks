@@ -53,43 +53,43 @@ function App() {
               color: theme ? themes.light.textcolor : themes.dark.textcolor,
             }}
           >
-            {/* <main>
-        <UseStateHook />
-        <UseEffectHook />
-      </main>
-      <hr />
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button type="button" onClick={() => setSearch(query)}>
-        Search
-      </button>
-      {error && <h2>Something went wrong, Refresh...</h2>}
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          {data.hits && (
-            <ul>
-              {data.hits.map((item) => (
-                <li key={item.objectID}>
-                  <a href={item.url}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
-      )}
-      <hr />
-      <div>
-        <UsingCustomHookLogic />
-      </div>
-      <hr />
-      <div>
-        <UsingUseReducerLogic />
-      </div> */}
+            <main>
+              <UseStateHook />
+              <UseEffectHook />
+            </main>
+            <hr />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type="button" onClick={() => setSearch(query)}>
+              Search
+            </button>
+            {error && <h2>Something went wrong, Refresh...</h2>}
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              <>
+                {data.hits && (
+                  <ul>
+                    {data.hits.map((item) => (
+                      <li key={item.objectID}>
+                        <a href={item.url}>{item.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </>
+            )}
+            <hr />
+            <div>
+              <UsingCustomHookLogic />
+            </div>
+            <hr />
+            <div>
+              <UsingUseReducerLogic />
+            </div>
             <div>
               <UseContectHook />
               <HelloWorld />
