@@ -11,6 +11,7 @@ import HelloWorld from "./components/HelloWorld";
 import ConsumingDefaultContextValue from "./components/ConsumingDefaultContextValue";
 import ReducerExample from "./components/ReducerExample";
 import UseMemo from "./hooks/UseMemo";
+import UseRef from "./hooks/UseRef";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -104,6 +105,7 @@ function App() {
       <>
         <ReducerExample />
         <UseMemo />
+        <UseRef />
       </>
     </ThemeContext.Provider>
   );
