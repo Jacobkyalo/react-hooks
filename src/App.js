@@ -9,6 +9,7 @@ import { Context } from "./contexts/ThemeContext";
 import { ThemeContext, themes } from "./contexts/ThemeContext";
 import HelloWorld from "./components/HelloWorld";
 import ConsumingDefaultContextValue from "./components/ConsumingDefaultContextValue";
+import ReducerExample from "./components/ReducerExample";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -41,7 +42,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <>
+      {/* <>
         <ConsumingDefaultContextValue />
         <Context.Provider value={"green"}>
           <div
@@ -98,7 +99,8 @@ function App() {
             <button onClick={() => setTheme(!theme)}>Change Theme</button>
           </div>
         </Context.Provider>
-      </>
+      </> */}
+      <ReducerExample />
     </ThemeContext.Provider>
   );
 }
