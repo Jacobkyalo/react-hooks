@@ -2,8 +2,11 @@ import React, { useRef } from "react";
 
 const UseRef = () => {
   const inputRef = useRef(null);
+  const hello = useRef(() => console.log("Am from input focus"));
+
   const focus = () => {
     inputRef.current.focus();
+    hello.current();
   };
 
   //focus input on page load
