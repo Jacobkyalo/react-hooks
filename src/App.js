@@ -15,6 +15,7 @@ import UseRef from "./hooks/UseRef";
 import Quick from "./components/Quick";
 import CleanUp from "./components/CleanUp";
 import UseLayoutEffectHooDemo from "./hooks/UseLayoutEffectHooDemo";
+import UseCallBackHookDemo from "./hooks/UseCallBackHookDemo";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -103,15 +104,16 @@ function App() {
             <p>Checking whether ThemeContext is working</p>
             <button onClick={() => setTheme(!theme)}>Change Theme</button>
           </div>
+          <>
+            <ReducerExample />
+            <UseMemo />
+            <UseRef />
+            <Quick />
+            <CleanUp />
+            <UseLayoutEffectHooDemo />
+            <UseCallBackHookDemo />
+          </>
         </Context.Provider>
-      </>
-      <>
-        <ReducerExample />
-        <UseMemo />
-        <UseRef />
-        <Quick />
-        <CleanUp />
-        <UseLayoutEffectHooDemo />
       </>
     </ThemeContext.Provider>
   );
