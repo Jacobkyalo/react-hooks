@@ -6,7 +6,7 @@ const UseEffectHook = () => {
   //using useEffect to set document title
   useEffect(() => {
     document.title = `You clicked Me ${count} times`;
-  });
+  }, [count]);
 
   return (
     <div>

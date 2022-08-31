@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import UsingCustomHookLogic from "./hooks/UsingCustomHookLogic";
 import UseStateHook from "./hooks/UseStateHook";
@@ -12,6 +12,9 @@ import ConsumingDefaultContextValue from "./components/ConsumingDefaultContextVa
 import ReducerExample from "./components/ReducerExample";
 import UseMemo from "./hooks/UseMemo";
 import UseRef from "./hooks/UseRef";
+import Quick from "./components/Quick";
+import CleanUp from "./components/CleanUp";
+import UseLayoutEffectHooDemo from "./hooks/UseLayoutEffectHooDemo";
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -22,6 +25,7 @@ function App() {
 
   const [theme, setTheme] = useState(themes.light);
 
+  const inputRef = useRef(null);
   useEffect(() => {
     const fetchHits = async () => {
       setLoading(true);
@@ -44,7 +48,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      {/* <>
+      <>
         <ConsumingDefaultContextValue />
         <Context.Provider value={"green"}>
           <div
@@ -61,12 +65,11 @@ function App() {
               <UseEffectHook />
             </main>
             <hr />
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button type="button" onClick={() => setSearch(query)}>
+            <input type="text" ref={inputRef} />
+            <button
+              type="button"
+              onClick={() => setSearch(inputRef.current.value)}
+            >
               Search
             </button>
             {error && <h2>Something went wrong, Refresh...</h2>}
@@ -86,13 +89,13 @@ function App() {
               </>
             )}
             <hr />
-            <div>
+            {/* <div>
               <UsingCustomHookLogic />
             </div>
             <hr />
             <div>
               <UsingUseReducerLogic />
-            </div>
+            </div> */}
             <div>
               <UseContectHook />
               <HelloWorld />
@@ -101,11 +104,14 @@ function App() {
             <button onClick={() => setTheme(!theme)}>Change Theme</button>
           </div>
         </Context.Provider>
-      </> */}
+      </>
       <>
         <ReducerExample />
         <UseMemo />
         <UseRef />
+        <Quick />
+        <CleanUp />
+        <UseLayoutEffectHooDemo />
       </>
     </ThemeContext.Provider>
   );
